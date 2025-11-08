@@ -31,8 +31,8 @@
     {
       "id": "grandTourChart",
       "title": "🚴 Total Grand Tour Wins",
-      "merckx": 16,
-      "pogacar": 8,
+      "merckx": 11,
+      "pogacar": 5,
       "maxValue": 16,
       "stepSize": 2
     },
