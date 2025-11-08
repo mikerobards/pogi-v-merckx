@@ -1,159 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Interactive comparison of cycling legends Eddy Merckx and Tadej Pogačar across multiple performance metrics">
-    <meta name="keywords" content="Eddy Merckx, Tadej Pogačar, cycling, Tour de France, comparison, statistics">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      value="Interactive comparison of cycling legends Eddy Merckx and Tadej Pogačar across multiple performance metrics"
+    />
+    <meta
+      name="keywords"
+      content="Eddy Merckx, Tadej Pogačar, cycling, Tour de France, comparison, statistics"
+    />
     <title>Merckx vs Pogačar - Cycling Legends Comparison</title>
-    
-    <!-- External Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚴</text></svg>">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>⚡ Merckx vs Pogačar ⚡</h1>
-            <p class="subtitle">Comparing Two Cycling Legends Across Generations</p>
-        </header>
-        
-        <div class="riders-intro">
-            <div class="rider-card">
-                <h2>Loading...</h2>
-                <p class="nickname"></p>
-                <p class="era"></p>
-            </div>
-            <div class="rider-card">
-                <h2>Loading...</h2>
-                <p class="nickname"></p>
-                <p class="era"></p>
-            </div>
-        </div>
-        
-        <div class="metrics-grid">
-            <!-- Tour de France Wins -->
-            <div class="metric-card">
-                <h3>🏆 Tour de France Wins</h3>
-                <div class="chart-container">
-                    <canvas id="tourChart"></canvas>
-                </div>
-                <div class="legend">
-                    <div class="legend-item">
-                        <div class="legend-color merckx-color"></div>
-                        <span>Loading...</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color pogacar-color"></div>
-                        <span>Loading...</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Grand Tour Wins -->
-            <div class="metric-card">
-                <h3>🚴 Total Grand Tour Wins</h3>
-                <div class="chart-container">
-                    <canvas id="grandTourChart"></canvas>
-                </div>
-                <div class="legend">
-                    <div class="legend-item">
-                        <div class="legend-color merckx-color"></div>
-                        <span>Loading...</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color pogacar-color"></div>
-                        <span>Loading...</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Monument Wins -->
-            <div class="metric-card">
-                <h3>🗿 Monument Classic Wins</h3>
-                <div class="chart-container">
-                    <canvas id="monumentChart"></canvas>
-                </div>
-                <div class="legend">
-                    <div class="legend-item">
-                        <div class="legend-color merckx-color"></div>
-                        <span>Loading...</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color pogacar-color"></div>
-                        <span>Loading...</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- World Championships -->
-            <div class="metric-card">
-                <h3>🌍 World Championships</h3>
-                <div class="chart-container">
-                    <canvas id="worldChart"></canvas>
-                </div>
-                <div class="legend">
-                    <div class="legend-item">
-                        <div class="legend-color merckx-color"></div>
-                        <span>Loading...</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color pogacar-color"></div>
-                        <span>Loading...</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Tour de France Stage Wins -->
-            <div class="metric-card">
-                <h3>🏁 Tour de France Stage Wins</h3>
-                <div class="chart-container">
-                    <canvas id="stageChart"></canvas>
-                </div>
-                <div class="legend">
-                    <div class="legend-item">
-                        <div class="legend-color merckx-color"></div>
-                        <span>Loading...</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color pogacar-color"></div>
-                        <span>Loading...</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Career Wins -->
-            <div class="metric-card">
-                <h3>🥇 Total Career Wins</h3>
-                <div class="chart-container">
-                    <canvas id="careerChart"></canvas>
-                </div>
-                <div class="legend">
-                    <div class="legend-item">
-                        <div class="legend-color merckx-color"></div>
-                        <span>Loading...</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color pogacar-color"></div>
-                        <span>Loading...</span>
-                    </div>
-                </div>
-                <p class="note"></p>
-            </div>
-        </div>
-        
-        <footer>
-            <p>Data accurate as of 2024 | Pogačar's statistics are still being written!</p>
-            <p class="footer-note">Note: Different eras had different racing calendars and competition levels</p>
-        </footer>
-    </div>
-    
-    <!-- Custom Scripts -->
-    <script src="scripts.js"></script>
-</body>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚴</text></svg>"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
