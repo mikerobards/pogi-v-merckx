@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import Chart from "chart.js/auto";
+import { useEffect, useMemo, useRef, useState } from 'react';
+import Chart from 'chart.js/auto';
 
 const DATA_URL = `${import.meta.env.BASE_URL}data.json`;
 
@@ -8,29 +8,29 @@ const createChartOptions = (maxValue, stepSize = 1) => ({
   maintainAspectRatio: false,
   animation: {
     duration: 2000,
-    easing: "easeInOutQuart",
+    easing: 'easeInOutQuart',
     delay: (context) => {
       let delay = 0;
-      if (context.type === "data" && context.mode === "default") {
+      if (context.type === 'data' && context.mode === 'default') {
         delay = context.dataIndex * 300 + context.datasetIndex * 100;
       }
       return delay;
     },
   },
   interaction: {
-    mode: "nearest",
+    mode: 'nearest',
     intersect: false,
   },
   plugins: {
     legend: { display: false },
     tooltip: {
-      backgroundColor: "rgba(0, 0, 0, 0.8)",
+      backgroundColor: 'rgba(0, 0, 0, 0.8)',
       padding: 12,
       cornerRadius: 8,
       displayColors: false,
       callbacks: {
         label: (context) => `${context.label}: ${context.parsed.y}`,
-        title: () => "",
+        title: () => '',
       },
     },
   },
@@ -39,7 +39,7 @@ const createChartOptions = (maxValue, stepSize = 1) => ({
       grid: { display: false },
       ticks: {
         font: { size: 14, weight: 600 },
-        color: "#4a4a5e",
+        color: '#4a4a5e',
       },
     },
     y: {
@@ -48,10 +48,10 @@ const createChartOptions = (maxValue, stepSize = 1) => ({
       ticks: {
         stepSize,
         font: { size: 12 },
-        color: "#7a7a8e",
+        color: '#7a7a8e',
       },
       grid: {
-        color: "rgba(0, 0, 0, 0.05)",
+        color: 'rgba(0, 0, 0, 0.05)',
         drawBorder: false,
       },
     },
@@ -66,21 +66,21 @@ const createGradient = (ctx, color1, color2) => {
 };
 
 const getUnitLabel = (title) => {
-  if (title.includes("Stage")) return "stages";
-  if (title.includes("Tour de France Wins")) return "wins";
-  if (title.includes("Grand Tour")) return "wins";
-  if (title.includes("Monument")) return "wins";
-  if (title.includes("World")) return "wins";
-  if (title.includes("Career")) return "wins*";
-  return "";
+  if (title.includes('Stage')) return 'stages';
+  if (title.includes('Tour de France Wins')) return 'wins';
+  if (title.includes('Grand Tour')) return 'wins';
+  if (title.includes('Monument')) return 'wins';
+  if (title.includes('World')) return 'wins';
+  if (title.includes('Career')) return 'wins*';
+  return '';
 };
 
 const RiderCard = ({ rider, fallbackLabel }) => (
   <div className="rider-card">
     <h2>{rider?.name ?? fallbackLabel}</h2>
-    <p className="nickname">{rider ? `"${rider.nickname}"` : ""}</p>
+    <p className="nickname">{rider ? `"${rider.nickname}"` : ''}</p>
     <p className="era">
-      {rider ? `${rider.country} | Active: ${rider.active}` : ""}
+      {rider ? `${rider.country} | Active: ${rider.active}` : ''}
     </p>
   </div>
 );
@@ -89,11 +89,11 @@ const RidersIntro = ({ riders, isLoading }) => (
   <section className="riders-intro">
     <RiderCard
       rider={riders?.merckx}
-      fallbackLabel={isLoading ? "Loading…" : "Merckx"}
+      fallbackLabel={isLoading ? 'Loading…' : 'Merckx'}
     />
     <RiderCard
       rider={riders?.pogacar}
-      fallbackLabel={isLoading ? "Loading…" : "Pogačar"}
+      fallbackLabel={isLoading ? 'Loading…' : 'Pogačar'}
     />
   </section>
 );
@@ -141,20 +141,20 @@ const MetricChart = ({ metric, riders, colors }) => {
       return undefined;
     }
 
-    const ctx = canvasRef.current.getContext("2d");
+    const ctx = canvasRef.current.getContext('2d');
     const gradientMerckx = createGradient(
       ctx,
       colors.merckx.primary,
-      colors.merckx.light,
+      colors.merckx.light
     );
     const gradientPogacar = createGradient(
       ctx,
       colors.pogacar.primary,
-      colors.pogacar.light,
+      colors.pogacar.light
     );
 
     chartRef.current = new Chart(ctx, {
-      type: "bar",
+      type: 'bar',
       data: {
         labels: [riders.merckx.name, riders.pogacar.name],
         datasets: [
@@ -182,7 +182,7 @@ const MetricChart = ({ metric, riders, colors }) => {
 const MetricCard = ({ metric, riders, colors, isLoading }) => (
   <div className="metric-card">
     <h3>{metric.title}</h3>
-    <div className={`chart-container${isLoading ? " loading" : ""}`}>
+    <div className={`chart-container${isLoading ? ' loading' : ''}`}>
       <MetricChart metric={metric} riders={riders} colors={colors} />
     </div>
     <MetricLegend riders={riders} metric={metric} />
@@ -200,7 +200,7 @@ function App() {
   const [riders, setRiders] = useState(null);
   const [metrics, setMetrics] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const headerRef = useRef(null);
 
   useEffect(() => {
@@ -211,15 +211,15 @@ function App() {
         setIsLoading(true);
         const response = await fetch(DATA_URL, { signal: controller.signal });
         if (!response.ok) {
-          throw new Error("Failed to load rider data.");
+          throw new Error('Failed to load rider data.');
         }
         const data = await response.json();
         setRiders(data.riders);
         setMetrics(data.metrics);
-        setError("");
+        setError('');
       } catch (err) {
-        if (err.name !== "AbortError") {
-          setError("Unable to load rider data. Please refresh to try again.");
+        if (err.name !== 'AbortError') {
+          setError('Unable to load rider data. Please refresh to try again.');
         }
       } finally {
         setIsLoading(false);
@@ -257,37 +257,37 @@ function App() {
       headerRef.current.style.transform = `translateY(${scrolled * 0.5}px)`;
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
+      if (event.key === 'Escape') {
         document
-          .querySelectorAll(".active")
-          .forEach((el) => el.classList.remove("active"));
+          .querySelectorAll('.active')
+          .forEach((el) => el.classList.remove('active'));
       }
     };
 
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   useEffect(() => {
     console.log(
-      "%c🚴‍♂️ Merckx vs Pogačar 🚴‍♂️",
-      "font-size: 24px; font-weight: bold; color: #667eea;",
+      '%c🚴‍♂️ Merckx vs Pogačar 🚴‍♂️',
+      'font-size: 24px; font-weight: bold; color: #667eea;'
     );
     console.log(
-      "%cTwo legends, different eras, one passion!",
-      "font-size: 14px; color: #764ba2;",
+      '%cTwo legends, different eras, one passion!',
+      'font-size: 14px; color: #764ba2;'
     );
     console.log(
-      "%cEddy Merckx: The Cannibal 🇧🇪",
-      "font-size: 12px; color: #FF6B6B;",
+      '%cEddy Merckx: The Cannibal 🇧🇪',
+      'font-size: 12px; color: #FF6B6B;'
     );
-    console.log("%cTadej Pogačar: Pogi 🇸🇮", "font-size: 12px; color: #4ECDC4;");
+    console.log('%cTadej Pogačar: Pogi 🇸🇮', 'font-size: 12px; color: #4ECDC4;');
   }, []);
 
   return (
@@ -317,7 +317,7 @@ function App() {
 
       <footer>
         <p>
-          Data accurate as of 2024 | Pogačar's statistics are still being
+          Data accurate as of Nov 2025 | Pogačar's statistics are still being
           written!
         </p>
         <p className="footer-note">

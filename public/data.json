@@ -24,7 +24,7 @@
       "id": "tourChart",
       "title": "🏆 Tour de France Wins",
       "merckx": 5,
-      "pogacar": 4,
+      "pogacar": 6,
       "maxValue": 6,
       "stepSize": 1
     },
