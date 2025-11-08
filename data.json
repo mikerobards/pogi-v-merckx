@@ -1,0 +1,73 @@
+{
+  "riders": {
+    "merckx": {
+      "name": "Eddy Merckx",
+      "nickname": "The Cannibal",
+      "country": "🇧🇪 Belgium",
+      "active": "1965-1978",
+      "colorPrimary": "#FF6B6B",
+      "colorSecondary": "#FF5252",
+      "colorLight": "rgba(255, 107, 107, 0.1)"
+    },
+    "pogacar": {
+      "name": "Tadej Pogačar",
+      "nickname": "Pogi",
+      "country": "🇸🇮 Slovenia",
+      "active": "2019-Present",
+      "colorPrimary": "#4ECDC4",
+      "colorSecondary": "#45B7B8",
+      "colorLight": "rgba(78, 205, 196, 0.1)"
+    }
+  },
+  "metrics": [
+    {
+      "id": "tourChart",
+      "title": "🏆 Tour de France Wins",
+      "merckx": 5,
+      "pogacar": 4,
+      "maxValue": 6,
+      "stepSize": 1
+    },
+    {
+      "id": "grandTourChart",
+      "title": "🚴 Total Grand Tour Wins",
+      "merckx": 11,
+      "pogacar": 4,
+      "maxValue": 12,
+      "stepSize": 2
+    },
+    {
+      "id": "monumentChart",
+      "title": "🗿 Monument Classic Wins",
+      "merckx": 19,
+      "pogacar": 4,
+      "maxValue": 20,
+      "stepSize": 5
+    },
+    {
+      "id": "worldChart",
+      "title": "🌍 World Championships",
+      "merckx": 3,
+      "pogacar": 1,
+      "maxValue": 4,
+      "stepSize": 1
+    },
+    {
+      "id": "stageChart",
+      "title": "🏁 Tour de France Stage Wins",
+      "merckx": 34,
+      "pogacar": 17,
+      "maxValue": 40,
+      "stepSize": 10
+    },
+    {
+      "id": "careerChart",
+      "title": "🥇 Total Career Wins",
+      "merckx": 525,
+      "pogacar": 85,
+      "maxValue": 600,
+      "stepSize": 100,
+      "note": "*Pogačar's career is ongoing"
+    }
+  ]
+}
