@@ -24,31 +24,31 @@
       "id": "tourChart",
       "title": "🏆 Tour de France Wins",
       "merckx": 5,
-      "pogacar": 6,
+      "pogacar": 4,
       "maxValue": 6,
       "stepSize": 1
     },
     {
       "id": "grandTourChart",
       "title": "🚴 Total Grand Tour Wins",
-      "merckx": 11,
-      "pogacar": 4,
-      "maxValue": 12,
+      "merckx": 16,
+      "pogacar": 8,
+      "maxValue": 16,
       "stepSize": 2
     },
     {
       "id": "monumentChart",
       "title": "🗿 Monument Classic Wins",
-      "merckx": 19,
-      "pogacar": 4,
-      "maxValue": 20,
-      "stepSize": 5
+      "merckx": 53,
+      "pogacar": 20,
+      "maxValue": 60,
+      "stepSize": 10
     },
     {
       "id": "worldChart",
       "title": "🌍 World Championships",
       "merckx": 3,
-      "pogacar": 1,
+      "pogacar": 2,
       "maxValue": 4,
       "stepSize": 1
     },
@@ -56,15 +56,15 @@
       "id": "stageChart",
       "title": "🏁 Tour de France Stage Wins",
       "merckx": 34,
-      "pogacar": 17,
+      "pogacar": 21,
       "maxValue": 40,
       "stepSize": 10
     },
     {
       "id": "careerChart",
       "title": "🥇 Total Career Wins",
-      "merckx": 525,
-      "pogacar": 85,
+      "merckx": 279,
+      "pogacar": 108,
       "maxValue": 600,
       "stepSize": 100,
       "note": "*Pogačar's career is ongoing"
