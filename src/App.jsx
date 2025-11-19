@@ -71,7 +71,7 @@ const getUnitLabel = (title) => {
   if (title.includes('Grand Tour')) return 'wins';
   if (title.includes('Monument')) return 'wins';
   if (title.includes('World')) return 'wins';
-  if (title.includes('Career')) return 'wins*';
+  if (title.includes('Career')) return 'wins';
   return '';
 };
 
